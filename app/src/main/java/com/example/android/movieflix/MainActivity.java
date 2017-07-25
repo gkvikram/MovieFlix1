@@ -118,7 +118,8 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
                     try {
                         js=results.getJSONObject(i);
                         posterpath=js.getString("poster_path");
-                        posterUrl=NetworkUtils.buildImageUrl(posterpath);
+
+                        posterUrl=NetworkUtils.buildImageUrl(posterpath.substring(1));
                         mp=new MoviePoster(posterUrl);
                         moviePosters.add(mp);
 

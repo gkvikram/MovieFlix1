@@ -66,7 +66,9 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
             mholder=(MovieHolder)convertView.getTag();
         }
             MoviePoster mposter=mposterList.get(position);
-           Picasso.with(context).load(mposter.mimageUrl.toString()).into(mholder.mmovieposter);
+        ImageView iconView = (ImageView) convertView.findViewById(R.id.movie_poster);
+           //Picasso.with(context).load(mposter.mimageUrl.toString()).into(mholder.mmovieposter);
+        Picasso.with(context).load(mposter.mimageUrl.toString()).into(iconView);
 
 
 
@@ -77,10 +79,10 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
 
 
      public class MovieHolder implements View.OnClickListener{
-          ImageView mmovieposter;
+          //ImageView mmovieposter;
          private int mclickedPosition;
          public MovieHolder(View view,int position){
-             mmovieposter=(ImageView)view.findViewById(R.id.movie_poster);
+             //mmovieposter=(ImageView)view.findViewById(R.id.movie_poster);
              mclickedPosition=position;
              view.setOnClickListener(this);
          }
