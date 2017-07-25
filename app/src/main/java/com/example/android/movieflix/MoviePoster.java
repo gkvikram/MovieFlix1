@@ -7,9 +7,9 @@ import java.net.URL;
  */
 
 public class MoviePoster {
-    URL mimageUrl;
+    public URL mimageUrl;
     public MoviePoster(URL imageurl){
-        mimageUrl=imageurl;
+        this.mimageUrl=imageurl;
 
     }
 }

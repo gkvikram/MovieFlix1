@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +66,7 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
             mholder=(MovieHolder)convertView.getTag();
         }
             MoviePoster mposter=mposterList.get(position);
-           //Picasso.with(context).load(m.icon).into(holder.imageIcon)
+           Picasso.with(context).load(mposter.mimageUrl.toString()).into(mholder.mmovieposter);
 
 
 
@@ -74,8 +76,8 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
     }
 
 
-     class MovieHolder implements View.OnClickListener{
-         private ImageView mmovieposter;
+     public class MovieHolder implements View.OnClickListener{
+          ImageView mmovieposter;
          private int mclickedPosition;
          public MovieHolder(View view,int position){
              mmovieposter=(ImageView)view.findViewById(R.id.movie_poster);
