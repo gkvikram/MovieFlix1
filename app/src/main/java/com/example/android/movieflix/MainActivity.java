@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MovieGridAdapter.GridItemClickListener {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
     private ProgressBar loadingIndicator;
     private TextView merrorDisplay;
     private String jsonResponse;
-    private List<MoviePoster> moviePosters;
+    private List<MoviePoster> moviePosters=new ArrayList<MoviePoster>();
     MovieGridAdapter mgridAdapter;
     JSONArray results= null;
 
