@@ -28,7 +28,7 @@ public class NetworkUtils {
     final static String INCLUDE_VIDEO="include_video";
     private final static String include_video="false";
 
-    final static String Image_MovieDB_BASE_URL=" http://image.tmdb.org/t/p/w342";
+    final static String Image_MovieDB_BASE_URL=" http://image.tmdb.org/t/p/w185";
 
 
     static String popularity="popularity.desc";
