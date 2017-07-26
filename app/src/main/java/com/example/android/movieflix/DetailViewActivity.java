@@ -42,11 +42,11 @@ private TextView movieOverview;
         try {
             JSONObject details=new JSONObject(resultSent);
             posterpath=details.getString("poster_path");
-            posterUrl=NetworkUtils.buildImageUrl(posterpath);
+            posterUrl=NetworkUtils.buildImageUrl(posterpath.substring(1));
             Picasso.with(this).load(posterUrl.toString()).into(moviePoster);
             movieTitle.setText(details.getString("title"));
             releaseDate.setText(details.getString("release_date"));
-            userRating.setText(details.getString("vote_average"));
+            userRating.setText(details.getString("vote_average")+"/10");
             movieOverview.setText(details.getString("overview"));
 
         } catch (JSONException e) {

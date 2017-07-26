@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,10 +37,7 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
         mnumberItems=numberItems;
         mposterList=(ArrayList<MoviePoster>)posters;
 
-        // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
-        // the second argument is used when the ArrayAdapter is populating a single TextView.
-        // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
-        // going to use this second argument, so it can be any value. Here, we used 0.
+
 
     }
 
@@ -68,7 +66,7 @@ public class MovieGridAdapter extends ArrayAdapter<MoviePoster> {
             MoviePoster mposter=mposterList.get(position);
         ImageView iconView = (ImageView) convertView.findViewById(R.id.movie_poster);
            //Picasso.with(context).load(mposter.mimageUrl.toString()).into(mholder.mmovieposter);
-        Picasso.with(context).load(mposter.mimageUrl.toString()).into(iconView);
+        Picasso.with(context).load(mposter.mimageUrl).into(iconView);
 
 
 

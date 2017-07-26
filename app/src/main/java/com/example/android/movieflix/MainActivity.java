@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
     private ProgressBar loadingIndicator;
     private TextView merrorDisplay;
     private String jsonResponse;
-    private List<MoviePoster> moviePosters=new ArrayList<MoviePoster>();
+    private List<MoviePoster> moviePosters;
     MovieGridAdapter mgridAdapter;
     JSONArray results= null;
 
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
         }
         protected void onPreExecute() {
             super.onPreExecute();
+            moviePosters=new ArrayList<MoviePoster>();
             showLoadingIndicator();
         }
 
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
                 }
                 JSONObject js;
                 String posterpath;
+                String backdroppath;
                 MoviePoster mp;
                 URL posterUrl;
                 for(int i=0;i<results.length();i++){
@@ -119,9 +121,11 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
                         js=results.getJSONObject(i);
                         posterpath=js.getString("poster_path");
 
-                        posterUrl=NetworkUtils.buildImageUrl(posterpath.substring(1));
-                        mp=new MoviePoster(posterUrl);
-                        moviePosters.add(mp);
+                        if(posterpath!=null&&!posterpath.equals("")) {
+                            posterUrl = NetworkUtils.buildImageUrl(posterpath.substring(1));
+                            mp = new MoviePoster(posterUrl.toString());
+                            moviePosters.add(mp);
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();

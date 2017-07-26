@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,62 +9,60 @@
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:height="60dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:background="@color/colorGreenish"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+
+         />
 
     <ImageView
         android:id="@+id/movie_poster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/movie_title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:layout_alignParentLeft="true"
+        android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+
+        android:layout_below="@+id/movie_title" />
 
     <TextView
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/movie_poster"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="103dp"
-        android:layout_marginStart="103dp"
-        android:layout_toEndOf="@+id/movie_poster"
+        android:layout_below="@+id/movie_title"
         android:layout_toRightOf="@+id/movie_poster"
-        android:text="TextView" />
+        android:paddingTop="30dp"
+        android:paddingLeft="20dp"
+
+        />
 
     <TextView
         android:id="@+id/user_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_below="@+id/release_date"
-        android:layout_alignLeft="@+id/release_date"
-        android:layout_alignStart="@+id/release_date" />
+        android:layout_toRightOf="@+id/movie_poster"
+        android:paddingLeft="20dp"
+        android:paddingBottom="30dp"
+        android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/user_rating"
-        android:layout_alignStart="@+id/user_rating"
-        android:layout_below="@+id/user_rating"
-        android:layout_marginTop="11dp"
-        android:text="TextView" />
+
 
     <TextView
         android:id="@+id/movie_overview"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView5"
-        android:layout_marginTop="110dp"
-        android:text="TextView" />
+        android:layout_below="@+id/movie_poster"
+
+         />
+
 
 
 </RelativeLayout>

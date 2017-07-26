@@ -10,11 +10,13 @@
         android:id="@+id/movies_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="150dp"
+        android:columnWidth="120dp"
         android:numColumns="auto_fit"
+        android:layoutMode="clipBounds"
         android:verticalSpacing="0dp"
         android:horizontalSpacing="0dp"
-        android:stretchMode="columnWidth"
+        android:stretchMode="none"
+        android:layout_gravity="center"
         >
     </GridView>
 
