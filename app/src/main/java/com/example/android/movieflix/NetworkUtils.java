@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class NetworkUtils {
     final static String MovieDB_BASE_URL =
-            "https://api.themoviedb.org/3/discover/movie";
+            "https://api.themoviedb.org/3/movie";
     final static String API_KEY="api_key";
 
     private static String api_key="";//you need to add API key from themoviedb.org of yours here.
@@ -23,13 +23,13 @@ public class NetworkUtils {
     private final static String pageNo="1";
     final static String LANG="language";
     private static String language="en-US";
-    final static String PARAM_SORT = "sort_by";
+    /*final static String PARAM_SORT = "sort_by";
     final static String INCLUDE_ADULT="include_adult";
     private final static String include_adult="false";
     final static String INCLUDE_VIDEO="include_video";
-    private final static String include_video="false";
+    private final static String include_video="false";*/
 
-    final static String Image_MovieDB_BASE_URL=" http://image.tmdb.org/t/p/w185";
+    final static String Image_MovieDB_BASE_URL="http://image.tmdb.org/t/p/w342";
 
 
     static String popularity="popularity.desc";
@@ -66,15 +66,22 @@ public class NetworkUtils {
         return url;
     }
 
-    public static URL buildDiscoverApiURL(String sortType){
-
-        Uri builtUri=Uri.parse(MovieDB_BASE_URL).buildUpon()
+    public static URL buildMovieApiURL(String sortType){
+        //if interested in discoverapi
+       /* Uri builtUri=Uri.parse(MovieDB_BASE_URL).buildUpon()
                         .appendQueryParameter(API_KEY,api_key)
                         .appendQueryParameter(LANG,language)
                         .appendQueryParameter(PARAM_SORT,sortType)
                         .appendQueryParameter(INCLUDE_ADULT,include_adult)
                         .appendQueryParameter(INCLUDE_VIDEO,include_video)
                         .appendQueryParameter(PAGE_NO,pageNo).build();
+                        */
+
+        Uri builtUri=Uri.parse(MovieDB_BASE_URL).buildUpon()
+                .appendPath(sortType)
+                .appendQueryParameter(API_KEY,api_key)
+                .appendQueryParameter(LANG,language)
+                .appendQueryParameter(PAGE_NO,pageNo).build();
 
         URL url = null;
         try {

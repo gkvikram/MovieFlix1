@@ -15,7 +15,6 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,10 +37,11 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
         mgridView=(GridView)findViewById(R.id.movies_gridview);
         loadingIndicator=(ProgressBar)findViewById(R.id.loading_indicator);
         merrorDisplay=(TextView)findViewById(R.id.error_message_display);
-
+        makeMovieDBQuery("popular");
 
 
     }
+
 
     private void showLoadingIndicator(){
         mgridView.setVisibility(View.INVISIBLE);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
     }
 
     public void makeMovieDBQuery(String sortType){
-        URL msearchUrl=NetworkUtils.buildDiscoverApiURL(sortType);
+        URL msearchUrl=NetworkUtils.buildMovieApiURL(sortType);
         MoviedbQueryTask mqtask=new MoviedbQueryTask(this);
         mqtask.execute(msearchUrl);
     }
@@ -107,12 +107,12 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
                 try {
 
                     results = searchResponse.getJSONArray("results");
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 JSONObject js;
                 String posterpath;
-                String backdroppath;
+                //String backdroppath;
                 MoviePoster mp;
                 URL posterUrl;
                 for(int i=0;i<results.length();i++){
@@ -153,7 +153,9 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        String details=itemDetails.toString();
+
+            String details = itemDetails.toString();
+
         Context context=MainActivity.this;
         Class detailViewActivity= DetailViewActivity.class;
         Intent startDetailViewIntent=new Intent(context,detailViewActivity);
@@ -172,10 +174,10 @@ public class MainActivity extends AppCompatActivity implements MovieGridAdapter.
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
         if (itemThatWasClickedId == R.id.popular_search) {
-            makeMovieDBQuery("popularity.desc");
+            makeMovieDBQuery("popular");
             return true;
         }else if(itemThatWasClickedId==R.id.toprated_search){
-             makeMovieDBQuery("vote_average.desc");
+             makeMovieDBQuery("top_rated");
             return true;
         }else {
 

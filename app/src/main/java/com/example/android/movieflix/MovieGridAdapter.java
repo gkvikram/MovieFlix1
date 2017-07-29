@@ -1,7 +1,6 @@
 package com.example.android.movieflix;
 
 import android.content.Context;
-import android.graphics.Movie;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

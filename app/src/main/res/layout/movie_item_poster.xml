@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ImageView android:id="@+id/movie_poster"
+    android:contentDescription="Movie Poster"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
