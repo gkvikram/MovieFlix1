@@ -18,7 +18,7 @@ public class NetworkUtils {
             "https://api.themoviedb.org/3/movie";
     final static String API_KEY="api_key";
 
-    private static String api_key="";//you need to add API key from themoviedb.org of yours here.
+    private static String api_key="88caf39faa54b20e48c409c6072f2523";//you need to add API key from themoviedb.org of yours here.
     final static String PAGE_NO="page";
     private final static String pageNo="1";
     final static String LANG="language";

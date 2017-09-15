@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.movieflix.DetailViewActivity">
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
@@ -67,7 +69,7 @@
         android:scrollbars="vertical"
 
          />
-
+</ScrollView>
 
 
 </RelativeLayout>
